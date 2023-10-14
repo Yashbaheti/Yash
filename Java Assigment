@@ -1,0 +1,131 @@
+Question 1
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+public class ShuffleArray{
+
+     public static void main(String []args){
+      List<Integer> list=new ArrayList<>();
+      list.add(1);
+      list.add(2);
+      list.add(3);
+      list.add(4);
+      list.add(5);
+      list.add(6);
+      list.add(7);
+      System.out.println("List before the shuffle is "+list);
+      
+      Collections.shuffle(list);
+      System.out.println("List After getting Shuffle is ");
+     System.out.println(list);
+
+     }
+}
+
+
+==================================
+
+Question 2
+
+
+package com.assignment.java;
+
+import java.util.Scanner;
+
+public class RomanToInteger{
+public int check(char r){
+    if (r == 'I')   
+       return 1;   
+       if (r == 'V')   
+       return 5;   
+      if (r == 'X')   
+       return 10;   
+     if (r == 'L')   
+       return 50;   
+     if (r == 'C')   
+       return 100;   
+     if (r == 'D')   
+      return 500;   
+    if (r == 'M')   
+       return 1000;   
+     return -1;   
+
+}
+public int calculate(String s){
+    int total=0;
+    int a;
+    int b;
+for(int i=0;i<s.length();i++){
+   a=check(s.charAt(i));
+  
+  if(i+1<s.length()){
+       b=check(s.charAt(i+1));
+  
+       if(a>b){
+      total+=a;
+     }
+    else{
+      total-=a;
+    }
+  }
+  else{
+      total+=a;
+  }
+ }
+return total;
+}
+public static void main(String args[]){
+	Scanner scn =new Scanner(System.in);
+	System.out.println("Enter the Roman Number");
+	String romNum=scn.next();
+	
+    RomanToInteger rom=new RomanToInteger();
+      System.out.println("The output when roman number "+romNum+" converted to integer is "+rom.calculate(romNum));
+   
+}
+}
+===========================================================
+
+
+
+Question 3
+
+
+package com.assignment.java;
+import java.util.HashSet;
+import java.util.Scanner;
+import java.util.Set;
+
+public class Pangram {
+	
+	  public static boolean isPangram(String input) { 
+	        input = input.toLowerCase();
+	        Set<Character> uniLetters = new HashSet<>();
+	        char arr[] =input.toCharArray();
+	        for (char c : arr) {
+	            if (Character.isLetter(c)) {
+	                uniLetters.add(c);
+	            }
+	        } 
+	        return uniLetters.size() == 26;
+	    }
+	  
+    public static void main(String[] args) {
+    	
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter a string to check weather it is pangram or not: ");
+        String input = scanner.nextLine();
+        
+        boolean check=isPangram(input);
+        if (check) {
+            System.out.println("The input is a pangram.");
+        } else {
+            System.out.println("The input is not a pangram.");
+        }
+
+    }
+    
+  
+}
